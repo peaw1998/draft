@@ -52,6 +52,19 @@ const tokenFunc = {
     }
     next();
   },
+
+  checkTeacher: (req, res, next) => {
+    let tokenTeacher = null;
+    try {
+      tokenTeacher = tokenFunc.getToken(req).role;
+      console.log(tokenTeacher);
+    } catch (error) {}
+    if (tokenTeacher !== "teacher") {
+      res.sendStatus(401);
+      return;
+    }
+    next();
+  },
 };
 
 module.exports = tokenFunc;
