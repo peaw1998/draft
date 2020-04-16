@@ -16,6 +16,13 @@ const tokenFunc = {
     };
     return jwt.encode(payload, "SECRET");
   },
+  createTokenAdmin: (data) => {
+    const payload = {
+      id: data,
+      role: "admin",
+    };
+    return jwt.encode(payload, "SECRET");
+  },
 
   getToken: (req) => {
     if (req.headers.authorization) {
@@ -60,6 +67,19 @@ const tokenFunc = {
       console.log(tokenTeacher);
     } catch (error) {}
     if (tokenTeacher !== "teacher") {
+      res.sendStatus(401);
+      return;
+    }
+    next();
+  },
+
+  checkAdmin: (req, res, next) => {
+    let tokenAdmin = null;
+    try {
+      tokenAdmin = tokenFunc.getToken(req).role;
+      console.log(tokenAdmin);
+    } catch (error) {}
+    if (tokenAdmin !== "admin") {
       res.sendStatus(401);
       return;
     }

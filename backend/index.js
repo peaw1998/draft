@@ -12,6 +12,8 @@ app.use(cors());
 app.use(require("./course"));
 app.use(require("./student"));
 app.use(require("./teacher"));
+app.use(require("./admin"));
+app.use(require("./offer"));
 
 app.get("/generatetoken", (req, res) => {
   res.send(token.createToken("testtest"));
