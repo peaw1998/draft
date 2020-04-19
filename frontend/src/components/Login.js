@@ -41,9 +41,13 @@ const Login = (props) => {
                 </Form.Group>
               </Form.Row>
             </Form>
+
             <Button variant="success" style={{ marginBottom: 10 }}>
               Login
             </Button>
+            <text className="font" style={{ marginBottom: 10 }}>
+              สมัครสมาชิกใหม่
+            </text>
             <LoginButton />
           </Card.Body>
         </Card>

@@ -40,7 +40,7 @@ router.post("/student/register", async (req, res) => {
     req.body
   );
   if (response.data) {
-    res.send(token.createTokenStudent(response.data.name));
+    return res.send(token.createTokenStudent(response.data.name));
   }
   return res.sendStatus(400);
 });

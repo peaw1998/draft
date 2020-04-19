@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "../firebase";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 const LoginFacebookButton = () => {
   let provider = new firebase.auth.FacebookAuthProvider();
@@ -21,6 +22,9 @@ const LoginFacebookButton = () => {
 
             if (result.isNewUser) {
               //register
+              axios.post("http://localhost:5000/student/register", {
+                email: user.email,
+              });
               //ระบบ login อื่น นอกจาก facebook
               //
             } else {
