@@ -5,14 +5,27 @@ import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 const MyNav = (props) => {
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand
-        onClick={(event) => {
-          event.preventDefault();
-          console.log(props);
+      <div
+        style={{
+          display: "flex",
+          alignContent: "center",
+          flexDirection: "column",
         }}
       >
-        React-Bootstrap
-      </Navbar.Brand>
+        <img
+          src={require("../images/Q.png")}
+          style={{ height: 50, width: 70 }}
+        />
+        <Navbar.Brand
+          onClick={(event) => {
+            event.preventDefault();
+            console.log(props);
+          }}
+        >
+          Q-pid course
+        </Navbar.Brand>
+      </div>
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
