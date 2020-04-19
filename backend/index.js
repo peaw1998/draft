@@ -16,14 +16,6 @@ app.use(require("./admin"));
 app.use(require("./offer"));
 let { checkStudent } = require("./middleware");
 
-app.get("/generatetoken", (req, res) => {
-  res.send(token.createToken("testtest"));
-});
-
-app.get("/test2", checkStudent, (req, res) => {
-  res.send("ok");
-});
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("server on port:", PORT);

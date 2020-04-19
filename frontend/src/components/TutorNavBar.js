@@ -5,26 +5,14 @@ import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 const MyNav = (props) => {
   return (
     <Navbar bg="light" expand="lg">
-      <div
-        style={{
-          display: "flex",
-          alignContent: "center",
-          flexDirection: "column",
+      <Navbar.Brand
+        onClick={(event) => {
+          event.preventDefault();
+          console.log(props);
         }}
       >
-        <img
-          src={require("../images/Q.png")}
-          style={{ height: 50, width: 70 }}
-        />
-        <Navbar.Brand
-          onClick={(event) => {
-            event.preventDefault();
-            console.log(props);
-          }}
-        >
-          Q-pid course
-        </Navbar.Brand>
-      </div>
+        Q-pid Course
+      </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -32,13 +20,14 @@ const MyNav = (props) => {
           <Nav.Link
             onClick={(event) => {
               event.preventDefault();
-              props.history.push("/course");
+              props.history.push("/tutor/home");
             }}
           >
             {" "}
             Home
           </Nav.Link>
-          <Nav.Link href="/home">123</Nav.Link>
+          <Nav.Link href="/tutor/course">All Course</Nav.Link>
+          {/* <Nav.Link href="/status">Status</Nav.Link> */}
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

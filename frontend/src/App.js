@@ -5,19 +5,19 @@ import { Button, Card } from "react-bootstrap";
 import Login from "./components/Login";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import MyNav from "./components/MyNavBar";
 import store from "./Reducer/Reducer";
-import PrivateRouter from "./PrivateRouter";
+import PrivateRouterTeacher from "./PrivateRouterTeacher";
+import PrivateRouterStudent from "./PrivateRouterStudent";
 
 const App = (props) => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <MyNav />
         <Switch>
           <Route path="/login" component={Login} exact={true} />
-          <PrivateRouter />
         </Switch>
+        <PrivateRouterStudent />
+        <PrivateRouterTeacher />
       </BrowserRouter>
     </Provider>
   );

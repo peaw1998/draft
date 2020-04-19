@@ -27,32 +27,6 @@ const AddCourse = (props) => {
         <h1 className="font2">เพิ่มคอร์สเรียนของฉัน</h1>
 
         <Form style={{ width: "40%" }}>
-          {/* <Form.Label className="font2">
-                        ข้อมูลส่วนตัว</Form.Label>
-                    <div style={{ marginTop: 5, marginBottom: 5 }}>
-                        <Form.Row>
-                            <Col>
-                                <Form.Control placeholder="ชื่อจริง" className="font" />
-                            </Col>
-                            <Col>
-                                <Form.Control placeholder="นามสกุล" className="font" />
-                            </Col>
-                        </Form.Row>
-                    </div>
-                    <Form.Control placeholder="อีเมล์" className="font" style={{ marginTop: 5, marginBottom: 5 }} />
-                    <Form.Control placeholder="เบอร์โทรศัพท์" className="font" style={{ marginTop: 5, marginBottom: 5 }} />
-                    <Form.Label className="font2">ข้อมูลคอร์สเรียน</Form.Label>
-                    <Form.Control placeholder="วิชาที่อยากเรียน" className="font" style={{ marginTop: 5, marginBottom: 5 }} />
-                    <div style={{ marginTop: 5, marginBottom: 5 }}>
-                        <Form.Row>
-                            <Col>
-                                <Form.Control placeholder="อายุ" className="font" />
-                            </Col>
-                            <Col>
-                                <Form.Control placeholder="ชั้นการศึกษา" className="font" />
-                            </Col>
-                        </Form.Row>
-                    </div> */}
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label className="font2">ชื่อวิชา</Form.Label>
