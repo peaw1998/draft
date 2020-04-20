@@ -45,4 +45,15 @@ router.post("/student/register", async (req, res) => {
   return res.sendStatus(400);
 });
 
+router.post("/student/login", async (req, res) => {
+  const res1 = await axios.get(
+    `https://mini-project-f433b.firebaseio.com/students.json?orderBy="email"&equalTo="${req.body.email}"`
+  );
+  if (convertObjectToArray(res1.data).length === 0) {
+    res.status(401).send("not found");
+  } else {
+    res.send(token.createTokenStudent(convertObjectToArray(res1.data)[0].id));
+  }
+});
+
 module.exports = router;
