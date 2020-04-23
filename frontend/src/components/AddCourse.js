@@ -9,15 +9,22 @@ const AddCourse = (props) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [price, setPrice] = useState("");
-  const id = props.student.id;
 
   const Post = async () => {
-    const res = await axios.post("http://localhost:5000/course", {
-      studentId: id,
-      name: name,
-      description: detail,
-      price: price,
-    });
+    const res = await axios.post(
+      "http://localhost:5000/course",
+      {
+        name: name,
+        description: detail,
+        price: price,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
     props.history.push("/");
   };
 
