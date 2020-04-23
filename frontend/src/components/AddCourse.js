@@ -4,6 +4,7 @@ import { Button, Card, Form, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import axios from "axios";
+import Footer from "./Footer";
 
 const AddCourse = (props) => {
   const [name, setName] = useState("");
@@ -30,7 +31,7 @@ const AddCourse = (props) => {
 
   return (
     <>
-      <div className="bg center ">
+      <div className="center">
         <h1 className="font2">เพิ่มคอร์สเรียนของฉัน</h1>
         <Form style={{ width: "40%" }}>
           <Form.Row>
@@ -83,6 +84,7 @@ const AddCourse = (props) => {
           ยืนยัน
         </Button>
       </div>
+      <Footer />
     </>
   );
 };

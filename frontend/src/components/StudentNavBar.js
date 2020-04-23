@@ -2,18 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Form, Nav, FormControl, Button } from "react-bootstrap";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const MyNav = (props) => {
   const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
 
-  useEffect(async () => {
-    let res = await axios.get("http://localhost:5000/student/profile", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    setEmail(res.data.email);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/student/profile", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        setEmail(res.data.email);
+      });
   }, []);
 
   return (
@@ -51,7 +56,15 @@ const MyNav = (props) => {
         <text className="font2" style={{ marginRight: 10 }}>
           {email}
         </text>
-        <Button variant="outline-danger">Logout</Button>
+        <Button
+          variant="outline-danger"
+          onClick={() => {
+            localStorage.removeItem("token");
+            dispatch({ type: "LOGOUT" });
+          }}
+        >
+          Logout
+        </Button>
       </Navbar.Collapse>
     </Navbar>
   );
