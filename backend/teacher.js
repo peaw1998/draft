@@ -40,7 +40,7 @@ router.get("/teacher/offer", setID, checkTeacher, async (req, res) => {
   return res.sendStatus(400);
 });
 
-router.get("/teacher/profile", setID, async (req, res) => {
+router.get("/teacher/profile", setID, checkTeacher, async (req, res) => {
   const response = await axios.get(
     `https://mini-project-f433b.firebaseio.com/teachers/${req.tokenID}.json`
   );
