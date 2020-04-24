@@ -45,7 +45,7 @@ const MyNav = (props) => {
             {" "}
             Home
           </Nav.Link>
-          <Nav.Link className="font2" href="/tutor/home">
+          <Nav.Link className="font2" href="/tutor/allcourse">
             All Course
           </Nav.Link>
           <Nav.Link className="font2" href="/tutor/course">

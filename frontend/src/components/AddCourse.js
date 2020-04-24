@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import axios from "axios";
 import Footer from "./Footer";
+import Alert from "sweetalert2";
 
 const AddCourse = (props) => {
   const [name, setName] = useState("");
@@ -12,21 +13,38 @@ const AddCourse = (props) => {
   const [price, setPrice] = useState("");
 
   const Post = async () => {
-    const res = await axios.post(
-      "http://localhost:5000/course",
-      {
-        name: name,
-        description: detail,
-        price: price,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+    const res1 = await axios
+      .post(
+        "http://localhost:5000/course",
+        {
+          name: name,
+          description: detail,
+          price: price,
         },
-      }
-    );
-    props.history.push("/");
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then(() => {
+        Alert.fire({
+          icon: "success",
+          title: "สร้างคอร์สเรียนเรียบร้อย",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        props.history.push("/status");
+      })
+      .catch(function (error) {
+        Alert.fire({
+          icon: "error",
+          title: "กรุณากรอกข้อมูลให้ครบถ้วน",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
 
   return (
