@@ -31,7 +31,7 @@ const AddCourse = (props) => {
 
   return (
     <>
-      <div className="center">
+      <div className="center bg">
         <h1 className="font2">เพิ่มคอร์สเรียนของฉัน</h1>
         <Form style={{ width: "40%" }}>
           <Form.Row>
@@ -52,7 +52,7 @@ const AddCourse = (props) => {
               <Form.Label className="font2">รายละเอียดวิชา</Form.Label>
               <Col>
                 <Form.Control
-                  placeholder="รายละเอียดต่าง ๆ เช่น พื้นฐานก่อนหน้า วัตถุประสงค์ในการเรียน อายุผู้เรียน เวลาที่ต้องการเรียน(กำหนดเป็นวันและเวลา/อาทิตย์) เป็นต้น"
+                  placeholder="รายละเอียดต่าง ๆ เช่น พื้นฐานก่อนหน้า วัตถุประสงค์ในการเรียน รายละเอียดของผู้เรียน ได้แก่ ชื่อ เบอร์โทรศัพท์ อายุ เวลาที่ต้องการเรียน(กำหนดเป็นวันและเวลา/อาทิตย์) เป็นต้น"
                   className="font"
                   as="textarea"
                   rows="8"

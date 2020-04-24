@@ -26,7 +26,7 @@ const Status = (props) => {
   return (
     <>
       {/* <div className="container-fluid"> */}
-      <div className="bg2 center">
+      <div className="bg center">
         <h1 className="font2">สถานะคอร์สเรียน</h1>
         <div className="status_box">
           <Card bg="success" style={{ width: "18rem", marginTop: 10 }}>
@@ -39,7 +39,25 @@ const Status = (props) => {
               ราคา
             </Card.Text>
           </Card>
-          <div className="font2">สถานะ Waiting หมายถึง ...</div>
+          <div className="font2">
+            สถานะ Waiting หมายถึง อยู่ระหว่างรอ Tutor เลือกคอร์สเรียน
+          </div>
+        </div>
+        <div className="status_box">
+          <Card bg="danger" style={{ width: "18rem", marginTop: 10 }}>
+            <Card.Header className="font">Status : Waiting</Card.Header>
+            <Card.Body>
+              <Card.Title className="font">ชื่อวิชา</Card.Title>
+              <Card.Text className="font">รายละเอียดต่าง ๆ</Card.Text>
+            </Card.Body>
+            <Card.Text className="font" style={{ marginBottom: 20 }}>
+              ราคา
+            </Card.Text>
+          </Card>
+          <div className="font2">
+            สถานะ Success หมายถึง Tutor เลือกคอร์สเรียนแล้ว
+            โปรดรอการติดต่อกลับจาก Tutor{" "}
+          </div>
         </div>
 
         <h1 className="font2">คอร์สเรียนของฉัน</h1>
