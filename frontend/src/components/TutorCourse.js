@@ -38,7 +38,7 @@ const Course = (props) => {
                     textAlign: "center",
                   }}
                 >
-                  PIN : {item.courseId}
+                  PIN : {item.id}
                 </Card.Header>
                 <Card.Body>
                   <Card.Text className="font">ชื่อวิชา : {item.name}</Card.Text>

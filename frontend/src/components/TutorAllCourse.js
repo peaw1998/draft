@@ -57,8 +57,8 @@ const TutorAllCourse = (props) => {
                   variant="dark"
                   style={{ width: "100% " }}
                   onClick={async () => {
-                    await Axios.post(
-                      "http://localhost:5000/offer",
+                    await Axios.put(
+                      "http://localhost:5000/course/offer",
                       {
                         courseId: item.id,
                       },

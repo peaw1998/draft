@@ -6,7 +6,7 @@ const convertObjectToArray = require("./convertObjectToArray");
 const { check, validationResult } = require("express-validator");
 let axios = require("axios");
 let token = require("./token");
-let { setID, checkStudent } = require("./middleware");
+let { setID, checkStudent, checkTeacher } = require("./middleware");
 let validator = require("./validator");
 
 router
@@ -45,12 +45,24 @@ router
     }
   );
 
-// router.route("/course/:id").get(async (req, res) => {
-//   const course = await axios.get(
-//     `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`
-//   );
-//   res.send(course.data);
-// });
+router.put("/course/offer", setID, checkTeacher, async (req, res) => {
+  const course = await axios.get(
+    `https://mini-project-f433b.firebaseio.com/courses/${req.body.courseId}.json`
+  );
+
+  if (course.data.status === "waiting") {
+    const res1 = await axios.patch(
+      `https://mini-project-f433b.firebaseio.com/courses/${req.body.courseId}.json`,
+      {
+        status: "success",
+        teacherId: req.tokenID,
+      }
+    );
+    if (res1.status === 200) return res.sendStatus(200);
+    else return res.status(400).send("update not success");
+  }
+  return res.status(400).send("not waiting");
+});
 
 router.route("/waitingcourse").get(async (req, res) => {
   const course = await axios.get(
