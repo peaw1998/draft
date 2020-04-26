@@ -24,7 +24,7 @@ const Course = (props) => {
 
   return (
     <>
-      <div className="bg center">
+      <div className=" bg center">
         <h1 className="font2">คอร์สเรียนของฉัน</h1>
         <div className="status_box">
           {offer.map((item, index) => {

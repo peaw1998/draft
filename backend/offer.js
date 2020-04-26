@@ -7,10 +7,16 @@ const { check, validationResult } = require("express-validator");
 let axios = require("axios");
 let token = require("./token");
 let validator = require("./validator");
-let { setID, checkTeacher } = require("./middleware");
+let { setID, checkTeacher, checkAdmin } = require("./middleware");
 
 router
   .route("/offer")
+  .get(async (req, res) => {
+    const offer = await axios.get(
+      "https://mini-project-f433b.firebaseio.com/offers.json"
+    );
+    res.send(convertObjectToArray(offer.data));
+  })
   .post(
     setID,
     checkTeacher,

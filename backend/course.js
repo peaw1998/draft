@@ -45,12 +45,12 @@ router
     }
   );
 
-router.route("/course/:id").get(async (req, res) => {
-  const course = await axios.get(
-    `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`
-  );
-  res.send(course.data);
-});
+// router.route("/course/:id").get(async (req, res) => {
+//   const course = await axios.get(
+//     `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`
+//   );
+//   res.send(course.data);
+// });
 
 router.route("/waitingcourse").get(async (req, res) => {
   const course = await axios.get(
