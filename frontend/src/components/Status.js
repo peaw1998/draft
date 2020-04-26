@@ -26,7 +26,6 @@ const Status = (props) => {
 
   return (
     <>
-      {/* <div className="container-fluid"> */}
       <div className="bg center">
         <h1 className="font2">สถานะคอร์สเรียน</h1>
         <div className="status_box2">
@@ -72,7 +71,14 @@ const Status = (props) => {
                       <div className="status_box2">
                         <Card
                           bg={item2.status === "success" ? "success" : "danger"}
-                          style={{ width: "14rem", marginTop: 10 }}
+                          style={{
+                            width: "14rem",
+                            marginTop: 10,
+                            cursor: "pointer",
+                          }}
+                          onClick={() => {
+                            props.history.push(`/view/${item2.id}`);
+                          }}
                         >
                           <Card.Header className="font">
                             Status : {item2.status}
@@ -100,27 +106,6 @@ const Status = (props) => {
             );
           })}
         </Container>
-        {/* return (
-
-          <div className="status_box">
-           <Card 
-              bg={item.status === "success" ? "danger" : "success"}
-              style={{ width: "18rem", marginTop: 10 }}
-            >
-              <Card.Header className="font">
-                Status : {item.status}
-              </Card.Header>
-              <Card.Body>
-                <Card.Title className="font">{item.name}</Card.Title>
-                <Card.Text className="font">{item.description}</Card.Text>
-              </Card.Body>
-              <Card.Text className="font" style={{ marginBottom: 20 }}>
-                ราคา : {item.price}
-              </Card.Text>
-            </Card>
-          </div>
-          );
-        */}
       </div>
       <Footer />
     </>

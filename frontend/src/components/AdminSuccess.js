@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import { Button, Card, Form, Col } from "react-bootstrap";
 import axios from "axios";
+import Footer from "./Footer";
 
 const AdminSuccess = (props) => {
   const [courses, setCourses] = useState([]);
@@ -11,13 +12,9 @@ const AdminSuccess = (props) => {
     setCourses(res.data);
     console.log(res.data);
   };
-  // const getOffer = async () => {
-  //   let res = await axios.get("http://localhost:5000/offer");
-  //   console.log(res.data);
-  // };
+
   useEffect(() => {
     getSuccess();
-    // getOffer();
   }, []);
 
   return (
@@ -38,26 +35,30 @@ const AdminSuccess = (props) => {
                 >
                   สถานะ : {item.status}
                 </Card.Header>
-                <Card.Title className="font" style={{ margin: 5 }}>
+                <Card.Text className="font" style={{ margin: 5 }}>
                   รหัสวิชา : {item.id}
-                </Card.Title>
-                <Card.Title className="font" style={{ margin: 5 }}>
+                </Card.Text>
+                <Card.Text className="font" style={{ margin: 5 }}>
                   ชื่อวิชา : {item.name}
-                </Card.Title>
+                </Card.Text>
                 <Card.Text className="font" style={{ margin: 5 }}>
                   รายละเอียด : {item.description}
                 </Card.Text>
                 <Card.Text className="font" style={{ margin: 5 }}>
                   ราคา : {item.price}
                 </Card.Text>
-                <Card.Title className="font" style={{ margin: 5 }}>
+                <Card.Text className="font" style={{ margin: 5 }}>
                   รหัสผู้สร้างคอร์ส : {item.studentId}
-                </Card.Title>
+                </Card.Text>
+                <Card.Text className="font" style={{ margin: 5 }}>
+                  รหัสผู้สอน : {item.teacherId}
+                </Card.Text>
               </Card>
             );
           })}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

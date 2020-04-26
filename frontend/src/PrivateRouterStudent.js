@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import AddCourse from "./components/AddCourse";
 import StudentHome from "./components/StudentHome";
+import StudentViewCourse from "./components/StudentViewCourse";
 import Status from "./components/Status";
 import { useSelector } from "react-redux";
 import MyNav from "./components/StudentNavBar";
@@ -22,6 +23,10 @@ const PrivateRouter = () => {
     {
       path: "/",
       component: StudentHome,
+    },
+    {
+      path: "/view/:id",
+      component: StudentViewCourse,
     },
   ];
 

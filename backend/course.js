@@ -94,4 +94,33 @@ router.route("/successcourse").get(async (req, res) => {
   );
 });
 
+router
+  .route("/course/:id")
+  .get(async (req, res) => {
+    const course = await axios.get(
+      `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`
+    );
+    return res.send(course.data);
+  })
+
+  .delete(async (req, res) => {
+    const course = await axios.delete(
+      `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`
+    );
+    if (course.status === 200) return res.send("delete success");
+    else return res.status(400).send("delete failed");
+  })
+
+  .put(async (req, res) => {
+    const res1 = await axios.patch(
+      `https://mini-project-f433b.firebaseio.com/courses/${req.params.id}.json`,
+      {
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+      }
+    );
+    if (res1.status === 200) return res.send("edit success");
+    else return res.status(400).send("edit failed");
+  });
 module.exports = router;
