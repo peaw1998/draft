@@ -31,7 +31,9 @@ const TutorAllCourse = (props) => {
           {courses.map((item, index) => {
             return (
               <Card
-                bg={item.status === "success" ? "danger" : "success"}
+                className={
+                  item.status === "success" ? "card-success" : "card-waiting"
+                }
                 style={{ width: "60%", marginTop: 10 }}
               >
                 <Card.Header
@@ -56,7 +58,7 @@ const TutorAllCourse = (props) => {
                 </Card.Text>
                 <Button
                   variant="dark"
-                  style={{ width: "100% " }}
+                  style={{ width: "100% ", backgroundColor: "#d35656" }}
                   onClick={async () => {
                     await Axios.put(
                       "http://localhost:5000/course/offer",

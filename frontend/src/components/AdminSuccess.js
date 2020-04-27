@@ -24,7 +24,10 @@ const AdminSuccess = (props) => {
         <div className="status_box">
           {courses.map((item, index) => {
             return (
-              <Card bg="success" style={{ width: "60%", marginTop: 10 }}>
+              <Card
+                className="card-success"
+                style={{ width: "60%", marginTop: 10 }}
+              >
                 <Card.Header
                   className="font"
                   style={{

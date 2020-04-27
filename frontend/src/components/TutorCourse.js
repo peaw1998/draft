@@ -29,7 +29,10 @@ const Course = (props) => {
         <div className="status_box">
           {offer.map((item, index) => {
             return (
-              <Card bg="dark" style={{ width: "60%", marginTop: 10 }}>
+              <Card
+                className="card-tutor"
+                style={{ width: "60%", marginTop: 10 }}
+              >
                 <Card.Header
                   className="font"
                   style={{

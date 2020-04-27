@@ -23,7 +23,10 @@ const AdminWaiting = () => {
         <div className="status_box">
           {courses.map((item, index) => {
             return (
-              <Card bg="danger" style={{ width: "60%", marginTop: 10 }}>
+              <Card
+                className="card-waiting"
+                style={{ width: "60%", marginTop: 10 }}
+              >
                 <Card.Header
                   className="font"
                   style={{

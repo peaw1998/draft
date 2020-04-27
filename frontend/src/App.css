@@ -33,10 +33,13 @@
   width: 100%;
 }
 .card-success {
-  background-color: "#9ccc65";
+  background-color: #9ccc65 !important;
 }
 .card-waiting {
-  background-color: "#ef5350";
+  background-color: #ef5350 !important;
+}
+.card-tutor {
+  background-color: #e2ba8c !important;
 }
 .student_home {
   display: flex;
