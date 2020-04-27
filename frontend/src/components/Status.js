@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { Button, Card, Form, Col, Row, Container } from "react-bootstrap";
 import Axios from "axios";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import Footer from "./Footer";
 import convert from "./convertToArray";
 
 const Status = (props) => {
-  const [courses, setCourses] = useState([]);
+  const courseRedux = useSelector((state) => state.course);
+  const dispatch = useDispatch();
 
   const fetchCourse = async () => {
     const course = await Axios.get("http://localhost:5000/student/course", {
@@ -17,7 +18,7 @@ const Status = (props) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    setCourses(course.data);
+    dispatch({ type: "SET_COURSES", payload: course.data });
   };
 
   useEffect(() => {
@@ -62,7 +63,7 @@ const Status = (props) => {
 
         <h1 className="font2">คอร์สเรียนของฉัน</h1>
         <Container>
-          {convert(courses).map((item, index) => {
+          {convert(courseRedux.courses).map((item, index) => {
             return (
               <Row style={{ display: "flex", justifyContent: "start" }}>
                 {item.map((item2) => {
